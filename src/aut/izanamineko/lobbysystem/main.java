@@ -27,7 +27,7 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
     public void onEnable() {
         System.out.println("<---=== LobbySystem ===--->");
         System.out.println("  |  Status: Enabled     |");
-        System.out.println("  |     Version: 0.5     |");
+        System.out.println("  |     Version: 0.6b     |");
         System.out.println("  | Author: IzanamiNeko  |");
         System.out.println(" -=-=-=-=-=-=-=-=-=-=-=-=-");
         loadCommands();
@@ -48,7 +48,6 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
         pm.registerEvents((Listener)new doublejump(this), (Plugin)this);
         pm.registerEvents((Listener)new TeamChat(this), (Plugin)this);
         pm.registerEvents((Listener)new ChatFormat(this), (Plugin)this);
-        
     }
 
   private void loadConfig() {
@@ -65,8 +64,11 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
     getConfig().addDefault("Config.Spawnpoint.ShowMsg", "true");
     getConfig().addDefault("Config.ChatClear.ShowMsg", "true");
     getConfig().addDefault("Config.Custom-Message.ShowMsg", "true");
-    getConfig().addDefault("Config.TeamChat.Prefix", "&8[&3Team&8] &7");
+    getConfig().addDefault("Config.TeamChat.Enabled", "true");
+    getConfig().addDefault("Config.TeamChat.Prefix", "&8[&2Team&8] &7");
     getConfig().addDefault("Config.DoubleJump.Enabled", "true");
+    getConfig().addDefault("Config.ChatFormat.Enabled", "true");
+    getConfig().addDefault("Config.ChatFormat.Format", "%pex% %player% &4>>&r");
     getConfig().options().copyDefaults(true);
     saveConfig();
     reloadConfig();
@@ -75,7 +77,7 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
     public void onDisable() {
         System.out.println("<---=== LobbySystem ===--->");
         System.out.println("  |  Status: Disabled    |");
-        System.out.println("  |     Version: 0.5     |");
+        System.out.println("  |     Version: 0.6b     |");
         System.out.println("  | Author: IzanamiNeko  |");
         System.out.println(" -=-=-=-=-=-=-=-=-=-=-=-=-");
     }

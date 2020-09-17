@@ -24,7 +24,8 @@ public class TeamChat implements Listener {
 	    String prefix = PermissionsEx.getUser(e.getPlayer()).getGroups()[0].getPrefix().replace("&", "§");
 	    String gruppe = PermissionsEx.getUser(e.getPlayer()).getGroupNames()[0];
 	    String tc = this.plugin.getConfig().getString("Config.TeamChat.Prefix").replace("&", "§");
-	    if (this.plugin.getConfig().getString("Config.ChatFormat.Enabled").equals("true") && 
+	    
+	    if (this.plugin.getConfig().getString("Config.TeamChat.Enabled").equals("true") && 
 	      e.getMessage().startsWith("!") && p
 	      .hasPermission("LobbySystem.TeamChat")) {
 	      e.setCancelled(true);
