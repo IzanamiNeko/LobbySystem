@@ -1,0 +1,15 @@
+name: LobbySystem
+main: aut.izanamineko.lobbysystem.main
+version: 0.5
+api-version: 1.16
+commands:
+  report:
+    description: Used to Report a player /report <player> <reason>
+  chatclear:
+    description: Used to Clear the Chat with /chatclear
+  cc:
+    description: Used to Clear the Chat with /cc
+  setspawn:
+    description: Used to set the Spawnpoint /setspawn
+  spawn:
+    description: Used to teleport to the Spawnpoint /spawn

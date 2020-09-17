@@ -1,0 +1,18 @@
+# Config by IzanamiNeko (Markus5K)
+Config:
+  Custom-Message:
+    Join: '&8[&3System&8] &c%player% &7has joined the Server!'
+    Quit: '&8[&3System&8] &c%player% &7has left the Server!'
+    ShowMsg: 'true'
+  Spawnpoint:
+    Spawn: '&8[&3System&8] &7You have been teleported to the Spawn!'
+    SetSpawn: '&8[&3System&8] &7You have set the Spawnpoint!'
+    Respawn: '&8[&3System&8] &7After you died you will spawn at the Mainpoint or your
+      own Spawnpoint!'
+    NoPerm: '&8[&3System&8] &7You dont have Permissions to set the main Spawnpoint!'
+    NoSpawnPerm: '&8[&3System&8] &7You dont have Permissions to teleport to the Spawn!'
+    ShowMsg: 'true'
+  ChatClear:
+    NoPerm: '&8[&3System&8] &7You dont have Permissions to clear the Chat!'
+    ChatClear: '&8[&3System&8] &7The Chat has been cleared by &c%player%!'
+    ShowMsg: 'true'
