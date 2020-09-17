@@ -1,6 +1,7 @@
 package aut.izanamineko.lobbysystem;
 
 import aut.izanamineko.lobbysystem.commands.ChatClear;
+import aut.izanamineko.lobbysystem.commands.CustomHelp;
 import aut.izanamineko.lobbysystem.commands.Spawn;
 import aut.izanamineko.lobbysystem.commands.setSpawn;
 import aut.izanamineko.lobbysystem.listener.ChatFormat;
@@ -27,11 +28,12 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
     public void onEnable() {
         System.out.println("<---=== LobbySystem ===--->");
         System.out.println("  |  Status: Enabled     |");
-        System.out.println("  |     Version: 0.6b     |");
+        System.out.println("  |     Version: 0.7.1   |");
         System.out.println("  | Author: IzanamiNeko  |");
         System.out.println(" -=-=-=-=-=-=-=-=-=-=-=-=-");
         loadCommands();
         loadConfig();
+        
     }
 
     private void loadCommands(){
@@ -42,6 +44,7 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
         getCommand("cc").setExecutor((CommandExecutor)new ChatClear(this));
         this.getCommand("spawn").setExecutor(new Spawn(this));
         this.getCommand("setspawn").setExecutor(new setSpawn(this));
+        getCommand("lobbysystem").setExecutor(new CustomHelp(this));
         
         pm.registerEvents(new respawn(this), this);
         pm.registerEvents(new welcome(this), this);
@@ -77,7 +80,7 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
     public void onDisable() {
         System.out.println("<---=== LobbySystem ===--->");
         System.out.println("  |  Status: Disabled    |");
-        System.out.println("  |     Version: 0.6b     |");
+        System.out.println("  |     Version: 0.7.1   |");
         System.out.println("  | Author: IzanamiNeko  |");
         System.out.println(" -=-=-=-=-=-=-=-=-=-=-=-=-");
     }

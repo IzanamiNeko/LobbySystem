@@ -33,7 +33,7 @@ public class TeamChat implements Listener {
 	        if (players.hasPermission("LobbySystem.TeamChat"))
 	          players.sendMessage(String.valueOf(tc) + prefix + p
 	              
-	              .getName() + "" + e
+	              .getName() + " >> " + e
 	              .getMessage()
 	              .replaceAll("!", "")); 
 	      } 
