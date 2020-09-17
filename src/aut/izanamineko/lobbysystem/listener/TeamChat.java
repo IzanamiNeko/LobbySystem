@@ -8,31 +8,34 @@ import org.bukkit.event.player.PlayerChatEvent;
 import org.bukkit.plugin.Plugin;
 
 import aut.izanamineko.lobbysystem.main;
+import ru.tehkode.permissions.bukkit.PermissionsEx;
 
 public class TeamChat implements Listener {
-	  String tc = this.plugin.getConfig().getString("Config.TeamChat.Prefix");
+	  private main plugin;
 	  
-	  static main plugin;
-
-	    public TeamChat(main instance) {
-	        plugin = instance;
-	    }
-
-	  
-	    @EventHandler
-	    public void onTC(PlayerChatEvent e) {
-	      Player p = e.getPlayer();
-	      if (e.getMessage().startsWith("!!") && p
-	        .hasPermission("LobbySystem.TeamChat")) {
-	        e.setCancelled(true);
-	        for (Player players : Bukkit.getOnlinePlayers()) {
-	          if (players.hasPermission("LobbySystem.TeamChat"))
-	            players.sendMessage(this.tc + p
-	                
-	                .getName() + " §r>> " + e
-	                .getMessage()
-	                .replaceAll("!", "")); 
-	        } 
-	      } 
-	    }
+	  public TeamChat(main plugin) {
+	    this.plugin = plugin;
+	    this.plugin.getServer().getPluginManager().registerEvents(this, (Plugin)plugin);
 	  }
+	  
+	  @EventHandler
+	  public void onTC(PlayerChatEvent e) {
+	    Player p = e.getPlayer();
+	    String prefix = PermissionsEx.getUser(e.getPlayer()).getGroups()[0].getPrefix().replace("&", "§");
+	    String gruppe = PermissionsEx.getUser(e.getPlayer()).getGroupNames()[0];
+	    String tc = this.plugin.getConfig().getString("Config.TeamChat.Prefix").replace("&", "§");
+	    if (this.plugin.getConfig().getString("Config.ChatFormat.Enabled").equals("true") && 
+	      e.getMessage().startsWith("!") && p
+	      .hasPermission("LobbySystem.TeamChat")) {
+	      e.setCancelled(true);
+	      for (Player players : Bukkit.getOnlinePlayers()) {
+	        if (players.hasPermission("LobbySystem.TeamChat"))
+	          players.sendMessage(String.valueOf(tc) + prefix + p
+	              
+	              .getName() + "" + e
+	              .getMessage()
+	              .replaceAll("!", "")); 
+	      } 
+	    } 
+	  }
+	}

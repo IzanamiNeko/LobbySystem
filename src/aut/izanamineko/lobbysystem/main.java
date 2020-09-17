@@ -3,6 +3,7 @@ package aut.izanamineko.lobbysystem;
 import aut.izanamineko.lobbysystem.commands.ChatClear;
 import aut.izanamineko.lobbysystem.commands.Spawn;
 import aut.izanamineko.lobbysystem.commands.setSpawn;
+import aut.izanamineko.lobbysystem.listener.ChatFormat;
 import aut.izanamineko.lobbysystem.listener.TeamChat;
 import aut.izanamineko.lobbysystem.listener.doublejump;
 import aut.izanamineko.lobbysystem.listener.respawn;
@@ -45,20 +46,9 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
         pm.registerEvents(new respawn(this), this);
         pm.registerEvents(new welcome(this), this);
         pm.registerEvents((Listener)new doublejump(this), (Plugin)this);
-        //pm.registerEvents((Listener)new InvOnJoin(this), (Plugin)this);
-        //pm.registerEvents((Listener)new InvGui_test(this), (Plugin)this);
-        //pm.registerEvents((Listener)new example(this), (Plugin)this);
         pm.registerEvents((Listener)new TeamChat(this), (Plugin)this);
+        pm.registerEvents((Listener)new ChatFormat(this), (Plugin)this);
         
-     /*pm.registerEvents((Listener)new Lobby_listener(this), (Plugin)this);
-    pm.registerEvents((Listener)new ChatFormat(this), (Plugin)this);
-    pm.registerEvents((Listener)new JumpPads_listener(this), (Plugin)this);
-    pm.registerEvents((Listener)new PlayerOptions(this), (Plugin)this);
-    pm.registerEvents((Listener)new Teleporter(this), (Plugin)this);
-    getCommand("options").setExecutor((CommandExecutor)new PlayerOptions(this));
-    getCommand("fl").setExecutor((CommandExecutor)new PlayerOptions(this));
-    getCommand("sethub").setExecutor((CommandExecutor)new SetLobby_CMD());
-    getCommand("hub").setExecutor((CommandExecutor)new Lobby_CMD());*/
     }
 
   private void loadConfig() {
