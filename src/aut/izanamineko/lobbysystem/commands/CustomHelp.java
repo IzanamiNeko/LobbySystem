@@ -32,6 +32,8 @@ public class CustomHelp implements CommandExecutor {
 	    p.sendMessage("§9from a Player > §a/lobbysystem info <player>           ");
 	    p.sendMessage("§6<====================Lobbysystem====================>");
 	    return true;
+	  } else {
+		  p.sendMessage();
 	  }
 	    return true;
 	}

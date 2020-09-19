@@ -13,3 +13,5 @@ commands:
     description: Used to teleport to the Spawnpoint /spawn
   lobbysystem:
     description: Used to list all the Commands /lobbysystem
+  lsreload:
+    description: Used to reload the Config /lsreload

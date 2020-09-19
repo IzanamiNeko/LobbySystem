@@ -2,14 +2,19 @@ package aut.izanamineko.lobbysystem;
 
 import aut.izanamineko.lobbysystem.commands.ChatClear;
 import aut.izanamineko.lobbysystem.commands.CustomHelp;
+import aut.izanamineko.lobbysystem.commands.ReloadCMD;
 import aut.izanamineko.lobbysystem.commands.Spawn;
 import aut.izanamineko.lobbysystem.commands.setSpawn;
+import aut.izanamineko.lobbysystem.listener.AntiPlugin;
 import aut.izanamineko.lobbysystem.listener.ChatFormat;
 import aut.izanamineko.lobbysystem.listener.TeamChat;
 import aut.izanamineko.lobbysystem.listener.doublejump;
 import aut.izanamineko.lobbysystem.listener.respawn;
 import aut.izanamineko.lobbysystem.listener.welcome;
+
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.Plugin;
@@ -45,12 +50,15 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
         this.getCommand("spawn").setExecutor(new Spawn(this));
         this.getCommand("setspawn").setExecutor(new setSpawn(this));
         getCommand("lobbysystem").setExecutor(new CustomHelp(this));
+        getCommand("lsreload").setExecutor(new ReloadCMD(this));
         
         pm.registerEvents(new respawn(this), this);
         pm.registerEvents(new welcome(this), this);
         pm.registerEvents((Listener)new doublejump(this), (Plugin)this);
         pm.registerEvents((Listener)new TeamChat(this), (Plugin)this);
         pm.registerEvents((Listener)new ChatFormat(this), (Plugin)this);
+        pm.registerEvents((Listener)new AntiPlugin(this), (Plugin)this);
+        
     }
 
   private void loadConfig() {
@@ -72,6 +80,10 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
     getConfig().addDefault("Config.DoubleJump.Enabled", "true");
     getConfig().addDefault("Config.ChatFormat.Enabled", "true");
     getConfig().addDefault("Config.ChatFormat.Format", "%pex% %player% &4>>&r");
+    getConfig().addDefault("Config.AntiPlugin.Enabled", "true");
+    getConfig().addDefault("Config.AntiPlugin.Message", "&8[&3System&8] &7You dont have permissions... &4[ &c%player% &4]");
+    getConfig().addDefault("Config.Reload.Success", "&8[&3System&8] &aLobbySystem has been reloaded!");
+    getConfig().addDefault("Config.Reload.Fail", "&8[&3System&8] &cLobbySystem failed to reload the Config!");
     getConfig().options().copyDefaults(true);
     saveConfig();
     reloadConfig();
@@ -84,5 +96,7 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
         System.out.println("  | Author: IzanamiNeko  |");
         System.out.println(" -=-=-=-=-=-=-=-=-=-=-=-=-");
     }
-
+    
 }
+    
+
