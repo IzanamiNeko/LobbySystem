@@ -18,6 +18,7 @@ public class AntiPlugin implements Listener {
 	  
 	  @EventHandler
 	  public void onPlayerCommand(PlayerCommandPreprocessEvent e) {
+		if(!e.getPlayer().hasPermission("LobbySystem.Bypass"))
 		if (this.plugin.getConfig().getString("Config.AntiPlugin.Enabled").equals("true"))
 	    if (e.getMessage().equalsIgnoreCase("/plugins")) {
 	      e.setCancelled(true);

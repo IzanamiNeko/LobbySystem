@@ -33,7 +33,7 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
     public void onEnable() {
         System.out.println("<---=== LobbySystem ===--->");
         System.out.println("  |  Status: Enabled     |");
-        System.out.println("  |     Version: 0.7.1   |");
+        System.out.println("  |     Version: 0.7.5   |");
         System.out.println("  | Author: IzanamiNeko  |");
         System.out.println(" -=-=-=-=-=-=-=-=-=-=-=-=-");
         loadCommands();
@@ -92,7 +92,7 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
     public void onDisable() {
         System.out.println("<---=== LobbySystem ===--->");
         System.out.println("  |  Status: Disabled    |");
-        System.out.println("  |     Version: 0.7.1   |");
+        System.out.println("  |     Version: 0.7.5   |");
         System.out.println("  | Author: IzanamiNeko  |");
         System.out.println(" -=-=-=-=-=-=-=-=-=-=-=-=-");
     }
