@@ -12,9 +12,7 @@ import aut.izanamineko.lobbysystem.listener.doublejump;
 import aut.izanamineko.lobbysystem.listener.respawn;
 import aut.izanamineko.lobbysystem.listener.welcome;
 
-import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.Plugin;
