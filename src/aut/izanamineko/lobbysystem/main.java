@@ -7,6 +7,7 @@ import aut.izanamineko.lobbysystem.commands.Spawn;
 import aut.izanamineko.lobbysystem.commands.setSpawn;
 import aut.izanamineko.lobbysystem.listener.AntiPlugin;
 import aut.izanamineko.lobbysystem.listener.ChatFormat;
+import aut.izanamineko.lobbysystem.listener.GeneralEvents;
 import aut.izanamineko.lobbysystem.listener.TeamChat;
 import aut.izanamineko.lobbysystem.listener.doublejump;
 import aut.izanamineko.lobbysystem.listener.respawn;
@@ -56,6 +57,7 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
         pm.registerEvents((Listener)new TeamChat(this), (Plugin)this);
         pm.registerEvents((Listener)new ChatFormat(this), (Plugin)this);
         pm.registerEvents((Listener)new AntiPlugin(this), (Plugin)this);
+        pm.registerEvents((Listener)new GeneralEvents(this), (Plugin)this);
         
     }
 
@@ -82,6 +84,8 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
     getConfig().addDefault("Config.AntiPlugin.Message", "&8[&3System&8] &7You dont have permissions... &4[ &c%player% &4]");
     getConfig().addDefault("Config.Reload.Success", "&8[&3System&8] &aLobbySystem has been reloaded!");
     getConfig().addDefault("Config.Reload.Fail", "&8[&3System&8] &cLobbySystem failed to reload the Config!");
+    getConfig().addDefault("Config.GeneralEvents.DropItem", "false");
+    getConfig().addDefault("Config.GeneralEvents.pickupItem", "false");
     getConfig().options().copyDefaults(true);
     saveConfig();
     reloadConfig();
