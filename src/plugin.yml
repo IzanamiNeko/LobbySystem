@@ -1,6 +1,6 @@
 name: LobbySystem
 main: aut.izanamineko.lobbysystem.main
-version: 0.7.1
+version: 0.8.1
 api-version: 1.16
 commands:
   chatclear:
