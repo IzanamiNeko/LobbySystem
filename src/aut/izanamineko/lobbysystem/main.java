@@ -2,7 +2,6 @@ package aut.izanamineko.lobbysystem;
 
 import aut.izanamineko.lobbysystem.commands.ChatClear;
 import aut.izanamineko.lobbysystem.commands.CustomHelp;
-import aut.izanamineko.lobbysystem.commands.ReloadCMD;
 import aut.izanamineko.lobbysystem.commands.Spawn;
 import aut.izanamineko.lobbysystem.commands.setSpawn;
 import aut.izanamineko.lobbysystem.listener.AntiPlugin;
@@ -32,34 +31,38 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
     public void onEnable() {
         System.out.println("<---=== LobbySystem ===--->");
         System.out.println("  |  Status: Enabled     |");
-        System.out.println("  |     Version: 0.7.5   |");
+        System.out.println("  |     Version: 0.8.2   |");
         System.out.println("  | Author: IzanamiNeko  |");
         System.out.println(" -=-=-=-=-=-=-=-=-=-=-=-=-");
+        loadListener();
         loadCommands();
         loadConfig();
         
     }
 
     private void loadCommands(){
-               plugin = this;
-        PluginManager pm = getServer().getPluginManager();
-        pm.registerEvents(this, (Plugin)this);
-        getCommand("chatclear").setExecutor((CommandExecutor)new ChatClear(this));
-        getCommand("cc").setExecutor((CommandExecutor)new ChatClear(this));
+         
+        this.getCommand("chatclear").setExecutor((CommandExecutor)new ChatClear(this));
+        this.getCommand("cc").setExecutor((CommandExecutor)new ChatClear(this));
         this.getCommand("spawn").setExecutor(new Spawn(this));
         this.getCommand("setspawn").setExecutor(new setSpawn(this));
-        getCommand("lobbysystem").setExecutor(new CustomHelp(this));
-        getCommand("lsreload").setExecutor(new ReloadCMD(this));
-        
-        pm.registerEvents(new respawn(this), this);
-        pm.registerEvents(new welcome(this), this);
-        pm.registerEvents((Listener)new doublejump(this), (Plugin)this);
-        pm.registerEvents((Listener)new TeamChat(this), (Plugin)this);
-        pm.registerEvents((Listener)new ChatFormat(this), (Plugin)this);
-        pm.registerEvents((Listener)new AntiPlugin(this), (Plugin)this);
-        pm.registerEvents((Listener)new GeneralEvents(this), (Plugin)this);
-        
+        this.getCommand("lobbysystem").setExecutor(new CustomHelp(this));
     }
+    
+  private void loadListener() {
+	  plugin = this;
+	  PluginManager pm = getServer().getPluginManager();
+ 
+      pm.registerEvents(this, (Plugin)this);
+      pm.registerEvents(new respawn(this), this);
+      pm.registerEvents(new welcome(this), this);
+      pm.registerEvents((Listener)new doublejump(this), (Plugin)this);
+      pm.registerEvents((Listener)new TeamChat(this), (Plugin)this);
+      pm.registerEvents((Listener)new ChatFormat(this), (Plugin)this);
+      pm.registerEvents((Listener)new AntiPlugin(this), (Plugin)this);
+      pm.registerEvents((Listener)new GeneralEvents(this), (Plugin)this);
+      
+  }
 
   private void loadConfig() {
     getConfig().options().header("Config by IzanamiNeko (Markus5K)");
@@ -83,7 +86,6 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
     getConfig().addDefault("Config.AntiPlugin.Enabled", "true");
     getConfig().addDefault("Config.AntiPlugin.Message", "&8[&3System&8] &7You dont have permissions... &4[ &c%player% &4]");
     getConfig().addDefault("Config.Reload.Success", "&8[&3System&8] &aLobbySystem has been reloaded!");
-    getConfig().addDefault("Config.Reload.Fail", "&8[&3System&8] &cLobbySystem failed to reload the Config!");
     getConfig().addDefault("Config.GeneralEvents.DropItem", "false");
     getConfig().addDefault("Config.GeneralEvents.pickupItem", "false");
     getConfig().options().copyDefaults(true);
@@ -94,7 +96,7 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
     public void onDisable() {
         System.out.println("<---=== LobbySystem ===--->");
         System.out.println("  |  Status: Disabled    |");
-        System.out.println("  |     Version: 0.7.5   |");
+        System.out.println("  |     Version: 0.8.2   |");
         System.out.println("  | Author: IzanamiNeko  |");
         System.out.println(" -=-=-=-=-=-=-=-=-=-=-=-=-");
     }
