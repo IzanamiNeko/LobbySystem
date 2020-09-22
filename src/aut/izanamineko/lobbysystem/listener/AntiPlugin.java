@@ -21,7 +21,7 @@ public class AntiPlugin implements Listener {
 	    if (this.plugin.getConfig().getString("Config.AntiPlugin.Enabled").equals("true"))
 	    if (onCMD.getMessage().equals("/?") && !onCMD.getPlayer().isOp()) {
 	      p.hasPermission("LobbySystem.CommandProtection");
-	      String msg = this.plugin.getConfig().getString("Config.AntiPlugin.Message").replace("&", "§").replaceAll("%player%", onCMD.getPlayer().getPlayerListName());
+	      String msg = this.plugin.getConfig().getString("Config.General.NoPerm").replace("&", "§").replaceAll("%player%", onCMD.getPlayer().getPlayerListName());
 	      p.sendMessage(msg);
 	      onCMD.setCancelled(true);
 	    } 

@@ -1,6 +1,6 @@
 name: LobbySystem
 main: aut.izanamineko.lobbysystem.main
-version: 0.8.2
+version: 0.8.5
 api-version: 1.16
 commands:
   chatclear:
@@ -12,4 +12,6 @@ commands:
   spawn:
     description: Used to teleport to the Spawnpoint /spawn
   lobbysystem:
+    description: Used to list all the Commands /lobbysystem
+  playerinfo:
     description: Used to list all the Commands /lobbysystem

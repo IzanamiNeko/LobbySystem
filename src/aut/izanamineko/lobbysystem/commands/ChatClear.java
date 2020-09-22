@@ -154,7 +154,7 @@ public class ChatClear implements CommandExecutor, Listener {
             Bukkit.getServer().broadcastMessage(msg);
         } else {
         	Player p = (Player) sender;
-            String NoPerm = this.plugin.getConfig().getString("Config.ChatClear.NoPerm");
+            String NoPerm = this.plugin.getConfig().getString("Config.General.NoPerm");
             NoPerm = NoPerm.replaceAll("&", "§");
         	p.sendMessage(NoPerm);
         	

@@ -2,6 +2,7 @@ package aut.izanamineko.lobbysystem;
 
 import aut.izanamineko.lobbysystem.commands.ChatClear;
 import aut.izanamineko.lobbysystem.commands.CustomHelp;
+import aut.izanamineko.lobbysystem.commands.PlayerInformation;
 import aut.izanamineko.lobbysystem.commands.Spawn;
 import aut.izanamineko.lobbysystem.commands.setSpawn;
 import aut.izanamineko.lobbysystem.listener.AntiPlugin;
@@ -47,6 +48,7 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
         this.getCommand("spawn").setExecutor(new Spawn(this));
         this.getCommand("setspawn").setExecutor(new setSpawn(this));
         this.getCommand("lobbysystem").setExecutor(new CustomHelp(this));
+        this.getCommand("playerinfo").setExecutor(new PlayerInformation(this));
     }
     
   private void loadListener() {
@@ -66,6 +68,7 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
 
   private void loadConfig() {
     getConfig().options().header("Config by IzanamiNeko (Markus5K)");
+    getConfig().addDefault("Config.General.NoPerm", "&8[&3System&8] &7You dont have permissions... &4[ &c%player% &4]");
     getConfig().addDefault("Config.Custom-Message.Join", "&8[&3System&8] &c%player% &7has joined the Server!");
     getConfig().addDefault("Config.Custom-Message.Quit", "&8[&3System&8] &c%player% &7has left the Server!");
     getConfig().addDefault("Config.Spawnpoint.Spawn", "&8[&3System&8] &7You have been teleported to the Spawn!");
@@ -73,7 +76,6 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
     getConfig().addDefault("Config.Spawnpoint.Respawn", "&8[&3System&8] &7After you died you will spawn at the Mainpoint or your own Spawnpoint!");
     getConfig().addDefault("Config.Spawnpoint.NoPerm", "&8[&3System&8] &7You dont have Permissions to set the main Spawnpoint!");
     getConfig().addDefault("Config.Spawnpoint.NoSpawnPerm", "&8[&3System&8] &7You dont have Permissions to teleport to the Spawn!");
-    getConfig().addDefault("Config.ChatClear.NoPerm", "&8[&3System&8] &7You dont have Permissions to clear the Chat!");
     getConfig().addDefault("Config.ChatClear.ChatClear", "&8[&3System&8] &7The Chat has been cleared by &c%player%!");
     getConfig().addDefault("Config.Spawnpoint.ShowMsg", "true");
     getConfig().addDefault("Config.ChatClear.ShowMsg", "true");
@@ -84,10 +86,18 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
     getConfig().addDefault("Config.ChatFormat.Enabled", "true");
     getConfig().addDefault("Config.ChatFormat.Format", "%pex% %player% &4>>&r");
     getConfig().addDefault("Config.AntiPlugin.Enabled", "true");
-    getConfig().addDefault("Config.AntiPlugin.Message", "&8[&3System&8] &7You dont have permissions... &4[ &c%player% &4]");
     getConfig().addDefault("Config.Reload.Success", "&8[&3System&8] &aLobbySystem has been reloaded!");
     getConfig().addDefault("Config.GeneralEvents.DropItem", "false");
     getConfig().addDefault("Config.GeneralEvents.pickupItem", "false");
+    getConfig().addDefault("Config.PlayerInfo.Line1", "&b------------&8[&6Player Info&8]&b------------");
+    getConfig().addDefault("Config.PlayerInfo.Line2", "&b------------&8[&6Player Info&8]&b------------");
+    getConfig().addDefault("Config.PlayerInfo.PlayerName", "&6Your Name: ");
+    getConfig().addDefault("Config.PlayerInfo.PlayerUUID", "&6Your UUID: ");
+    getConfig().addDefault("Config.PlayerInfo.PlayerIP", "&6Your IP: ");
+    getConfig().addDefault("Config.PlayerInfo.PlayerIsOp", "&6You are OP? ");
+    getConfig().addDefault("Config.PlayerInfo.PlayerDisplayName", "&6Your Display Name: ");
+    getConfig().addDefault("Config.PlayerInfo.PlayerIsFlying", "&6Are you flying? ");
+    getConfig().addDefault("Config.PlayerInfo.Console", "&cConsoles cannot use this command!");
     getConfig().options().copyDefaults(true);
     saveConfig();
     reloadConfig();
