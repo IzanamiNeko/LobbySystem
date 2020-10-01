@@ -1,37 +1,72 @@
-## Welcome to GitHub Pages
+[code]Features:
++ Config
++ Welcome Message
++ ChatClear
++ SetSpawn/Spawn/Respawn
++ DoubleJump
++ ChatFormat
++ TeamChat
++ Plugin reload command
++ Command Protection
++ No Damage (Water or Fall)
++ No drop Item and No pickup Item
 
-You can use the [editor on GitHub](https://github.com/IzanamiNeko/LobbySystem/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Permissions:
+LobbySystem.Spawn
+LobbySystem.SetSpawn
+LobbySystem.ChatClear
+LobbySystem.DoubleJump
+LobbySystem.TeamChat
+LobbySystem.Help
+LobbySystem.Reload
+LobbySystem.NoDamage
+LobbySystem.dropItem
+LobbySystem.pickupItem
+LobbySystem.CommandProtection
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+[/code]
 
-### Markdown
+[code=YAML]
+# Config by IzanamiNeko (Markus5K)
+Config:
+  Custom-Message:
+    Join: '&8[&3System&8] &c%player% &7has joined the Server!'
+    Quit: '&8[&3System&8] &c%player% &7has left the Server!'
+    ShowMsg: 'true'
+  Spawnpoint:
+    Spawn: '&8[&3System&8] &7You have been teleported to the Spawn!'
+    SetSpawn: '&8[&3System&8] &7You have set the Spawnpoint!'
+    Respawn: '&8[&3System&8] &7After you died you will spawn at the Mainpoint or your
+      own Spawnpoint!'
+    NoPerm: '&8[&3System&8] &7You dont have Permissions to set the main Spawnpoint!'
+    NoSpawnPerm: '&8[&3System&8] &7You dont have Permissions to teleport to the Spawn!'
+    ShowMsg: 'true'
+  ChatClear:
+    NoPerm: '&8[&3System&8] &7You dont have Permissions to clear the Chat!'
+    ChatClear: '&8[&3System&8] &7The Chat has been cleared by &c%player%!'
+    ShowMsg: 'true'
+  TeamChat:
+    Enabled: 'true'
+    Prefix: '&8[&2Team&8] &7'
+  DoubleJump:
+    Enabled: 'true'
+  ChatFormat:
+    Enabled: 'true'
+    Format: '%pex% %player% &4>>&r'
+  AntiPlugin:
+    Enabled: 'true'
+    Message: '&8[&3System&8] &7You dont have permissions... &4[ &c%player% &4]'
+  Reload:
+    Success: '&8[&3System&8] &aLobbySystem has been reloaded!'
+    Fail: '&8[&3System&8] &cLobbySystem failed to reload the Config!'
+  GeneralEvents:
+    DropItem: 'false'
+    pickupItem: 'false'
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+[/code]
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/IzanamiNeko/LobbySystem/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+[code]License:
+Don't distribute the plugin.
+Don't edit the code.
+Don't leave bad reviews without sending me a PM about the problem!
+Don't decompile the plugin.[/code]
