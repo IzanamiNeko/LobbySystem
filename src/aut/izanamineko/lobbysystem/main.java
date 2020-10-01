@@ -32,7 +32,7 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
     public void onEnable() {
         System.out.println("<---=== LobbySystem ===--->");
         System.out.println("  |  Status: Enabled     |");
-        System.out.println("  |     Version: 0.8.2   |");
+        System.out.println("  |     Version: 0.8.5   |");
         System.out.println("  | Author: IzanamiNeko  |");
         System.out.println(" -=-=-=-=-=-=-=-=-=-=-=-=-");
         loadListener();
@@ -54,12 +54,11 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
   private void loadListener() {
 	  plugin = this;
 	  PluginManager pm = getServer().getPluginManager();
- 
       pm.registerEvents(this, (Plugin)this);
       pm.registerEvents(new respawn(this), this);
       pm.registerEvents(new welcome(this), this);
-      pm.registerEvents((Listener)new doublejump(this), (Plugin)this);
-      pm.registerEvents((Listener)new TeamChat(this), (Plugin)this);
+      //pm.registerEvents((Listener)new doublejump(this), (Plugin)this);
+      //pm.registerEvents((Listener)new TeamChat(this), (Plugin)this);
       pm.registerEvents((Listener)new ChatFormat(this), (Plugin)this);
       pm.registerEvents((Listener)new AntiPlugin(this), (Plugin)this);
       pm.registerEvents((Listener)new GeneralEvents(this), (Plugin)this);
@@ -80,9 +79,9 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
     getConfig().addDefault("Config.Spawnpoint.ShowMsg", "true");
     getConfig().addDefault("Config.ChatClear.ShowMsg", "true");
     getConfig().addDefault("Config.Custom-Message.ShowMsg", "true");
-    getConfig().addDefault("Config.TeamChat.Enabled", "true");
-    getConfig().addDefault("Config.TeamChat.Prefix", "&8[&2Team&8] &7");
-    getConfig().addDefault("Config.DoubleJump.Enabled", "true");
+    //getConfig().addDefault("Config.TeamChat.Enabled", "true");
+    //getConfig().addDefault("Config.TeamChat.Prefix", "&8[&2Team&8] &7");
+    //getConfig().addDefault("Config.DoubleJump.Enabled", "true");
     getConfig().addDefault("Config.ChatFormat.Enabled", "true");
     getConfig().addDefault("Config.ChatFormat.Format", "%pex% %player% &4>>&r");
     getConfig().addDefault("Config.AntiPlugin.Enabled", "true");
@@ -106,7 +105,7 @@ public class main extends JavaPlugin implements Listener, CommandExecutor {
     public void onDisable() {
         System.out.println("<---=== LobbySystem ===--->");
         System.out.println("  |  Status: Disabled    |");
-        System.out.println("  |     Version: 0.8.2   |");
+        System.out.println("  |     Version: 0.8.5   |");
         System.out.println("  | Author: IzanamiNeko  |");
         System.out.println(" -=-=-=-=-=-=-=-=-=-=-=-=-");
     }

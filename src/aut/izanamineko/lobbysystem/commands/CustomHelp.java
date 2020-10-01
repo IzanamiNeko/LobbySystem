@@ -1,5 +1,8 @@
 package aut.izanamineko.lobbysystem.commands;
 
+import java.io.File;
+import java.io.IOException;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -14,6 +17,8 @@ public class CustomHelp implements CommandExecutor {
 	    plugin = instance;
 	  }
 	  
+	  
+	  
 	  public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 	    Player p = (Player)sender;    	
 	    	if (!(sender instanceof Player)) {
@@ -21,9 +26,11 @@ public class CustomHelp implements CommandExecutor {
 	            return true;
 	        }
 	    	if(cmd.getName().equalsIgnoreCase("lobbysystem")) {
-	    		if(!sender.hasPermission("LobbySystem.Help") || !sender.hasPermission("LobbySystem.Reload")) {
+	    		if(!sender.hasPermission("LobbySystem.Help")) {
+	    			if(!sender.hasPermission("LobbySystem.Reload")) {
 	    			sender.sendMessage(this.plugin.getConfig().getString("Config.CustomHelp.NoPermissions".replace("&", "§")));
 	    			return true;
+	    		}
 	    		}
 	    if(args.length == 0) {	    	
 	    p.sendMessage("§6<====================Lobbysystem====================>");
@@ -47,6 +54,8 @@ public class CustomHelp implements CommandExecutor {
 	    }
    	return false;
 }
-	private void reloadConfig() {}
-
+	private void reloadConfig() {            	           	
+		this.plugin.reloadConfig();
+		this.plugin.saveConfig();
+	}
 }
